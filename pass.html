@@ -18,7 +18,7 @@
 
 <body>
     <h1>Pass phrase by Venkata Bhavana Annem</h1><br>
-    
+
     <form class="form-group">
         <label for="form1_secret_word">Enter the secret phrase</label>
         <input type="password" id="form1_secret_word" name="form1_secret_word" min=10 max=50 step=2 value="Let me in">
@@ -59,6 +59,34 @@
 
         }
 
+    </script>
+
+    <div class = "container">
+        <img src="Elephant.jpg" height = "200" width = "200" onclick = "newImage()" id="image">
+    </div>
+
+    <script>
+        var usingImage = 1;
+        image = document.getElementById("image");
+
+        function  newImage()
+        {
+            switch(usingImage)
+            {
+                case 1:
+                    image.setAttribute('src', 'Elephant.jpg');
+                    usingImage++;
+                    break;
+                case 2:
+                    image.setAttribute('src', 'monkey.jpg');
+                    usingImage++;
+                    break;
+                case 3:
+                    image.setAttribute('src', 'Vampire Bat.jpg');
+                    usingImage = 1;
+                    break;
+            }
+        }
     </script>
 
 </body>
