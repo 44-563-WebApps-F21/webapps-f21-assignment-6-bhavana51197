@@ -17,6 +17,7 @@
 </head>
 
 <body>
+
     <h1>Pass phrase by Venkata Bhavana Annem</h1><br>
 
     <form class="form-group">
@@ -38,20 +39,23 @@
         var correct = 0;
         var wrong = 0;
 
-        function processPhrase() {
+        function processPhrase()
+         {
 
             console.log("Checking the Guess......")
             secret_Word = document.getElementById("form1_secret_word").value
             guess_word = document.getElementById("form1_guess_word").value
             result = document.getElementById("result")
 
-            if (secret_Word.localeCompare(guess_word) == 0) {
+            if (secret_Word.localeCompare(guess_word) == 0) 
+            {
                 alert("Access allowed")
-                correct = correct + 1
+                correct++;
                 result.innerHTML = "Correct guess Count: " + correct + "<br>" + "Wrong guess Count: " + wrong
             }
-            else {
-                wrong = wrong + 1
+            else
+            {
+                wrong++;
                 alert("Access denied")
 
                 result.innerHTML = "Correct guess Count: " + correct + "<br>" + "Wrong guess Count: " + wrong
