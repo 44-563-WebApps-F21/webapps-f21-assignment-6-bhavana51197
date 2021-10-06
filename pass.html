@@ -29,10 +29,17 @@
         <input type="text" id="form1_guess_word" name="form1_guess_word" autofocus> <br>
 
         <input type="button" onclick=" processPhrase()" value="Check the phrase">
+
+        <p id="result">Your guess count will shown here. </p>
+
     </form>
 
 
-    <p id="result">Your guess count will shown here. </p>
+    
+
+    <div class = "container">
+        <img src="Elephant.jpg" height = "200" width = "200" onclick = "newImage()" id="image">
+    </div>
 
 
     <script>
@@ -63,13 +70,6 @@
 
         }
 
-    </script>
-
-    <div class = "container">
-        <img src="Elephant.jpg" height = "200" width = "200" onclick = "newImage()" id="image">
-    </div>
-
-    <script>
         var usingImage = 1;
         image = document.getElementById("image");
 
@@ -89,8 +89,9 @@
                     image.setAttribute('src', 'Vampire Bat.jpg');
                     usingImage = 1;
                     break;
-            }
+           }
         }
+
     </script>
 
 </body>
