@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Car</title>
+</head>
+
+<body>
+
+    <h2>orders a car by Venkata Bhavana Annem</h2>
+
+    <form>
+        <label for="form_property">Enter a property</label>
+        <input type="text" id="form_property" name="property" value=color> <br>
+
+        <label for="form_value">Enter a value</label>
+        <input type="text" id="form_value" name="value"> <br>
+
+        <input type="button" onclick="updateCar()" value="Update the car">
+    </form>
+
+    <form>
+        <input type="checkbox" id="cb_electric" name = "order" value="electric">
+        <label for="cb_electric">electric</label></br>
+
+        <input type="checkbox" id="cb_ac" name = "order" value="ac">
+        <label for="cb_ac">ac</label></br>
+
+        <input type="checkbox" id="cb_gps" name = "order" value="gps">
+        <label for="cb_gps">GPS</label></br>
+
+        <input type="button" onclick="orderCar()" value="Order a car">
+    </form>
+    <p id="result">This text will give the results of ordering a car</p>
+
+    <script>
+        var my_car = {}
+        out = document.getElementById("result")
+
+        function orderCar() {
+
+            var my_car = {}
+            if (document.getElementById("cb_electric").checked) {
+                my_car.electric = true;
+            }
+            else {
+                my_car.electric = false;
+            }
+            result.innerHTML = "electric: " + my_car.electric;
+            if (document.getElementById("cb_ac").checked) {
+                my_car.ac = true;
+            }
+            else {
+                my_car.ac = false;
+            }
+            result.innerHTML = result.innerHTML + "\n" + "ac: " + my_car.ac;
+            if (document.getElementById("cb_gps").checked) {
+                my_car.gps = true;
+            }
+            else {
+                my_car.gps = false;
+            }
+            result.innerHTML = result.innerHTML + "\n" + "gps: " + my_car.gps;
+        }
+       
+        out = document.getElementById("result")
+
+        function updateCar()
+        {
+            var property = document.getElementById("form_property").value;
+            var value = document.getElementById("form_value").value;
+            my_car[property] = value;
+            result.innerHTML = "my_car[]=  " + JSON.stringify(my_car);
+        }
+
+    </script>
+
+</body>
+
+</html>
