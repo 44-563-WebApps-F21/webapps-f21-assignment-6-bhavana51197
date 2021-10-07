@@ -28,55 +28,67 @@
         <label for="form1_guess_word">Enter a phrase</label>
         <input type="text" id="form1_guess_word" name="form1_guess_word" autofocus> <br>
 
-        <input type="button" onclick=" processPhrase()" value="Check the phrase">
+        <input type="button" class="btn btn-success" onclick=" processPhrase()" value="Check the phrase" id = "locked">
 
         <p id="result">Your guess count will shown here. </p>
 
     </form>
 
 
-    
 
-    <div class = "container">
-        <img src="Elephant.jpg" height = "200" width = "200" onclick = "newImage()" id="image">
+
+    <div class="container">
+        <img src="Elephant.jpg" height="200" width="200" onclick="newImage()" id="image">
     </div>
 
 
     <script>
         var correct = 0;
         var wrong = 0;
+        var count = 0;
 
-        function processPhrase()
-         {
+        function processPhrase() {
 
             console.log("Checking the Guess......")
             secret_Word = document.getElementById("form1_secret_word").value
             guess_word = document.getElementById("form1_guess_word").value
             result = document.getElementById("result")
 
-            if (secret_Word.localeCompare(guess_word) == 0) 
-            {
+            if (secret_Word.localeCompare(guess_word) == 0) {
                 alert("Access allowed")
                 correct++;
                 result.innerHTML = "Correct guess Count: " + correct + "<br>" + "Wrong guess Count: " + wrong
             }
-            else
-            {
-                wrong++;
-                alert("Access denied")
+            else {
+                if (count >= 0 && count < 3) {
+                    wrong++;
+                    count++;
+                    alert("Access denied")
+                    result.innerHTML = "Correct guess Count: "
+                        + correct + "<br>" + "Wrong guess Count: " + wrong
 
-                result.innerHTML = "Correct guess Count: " + correct + "<br>" + "Wrong guess Count: " + wrong
+                }
+                else {
+                    accountLock();
+                }
             }
 
         }
 
+        function accountLock() {
+
+            document.getElementById("locked").value = "Account is locked"
+            document.getElementById("locked").className = "btn btn-danger"
+            document.getElementById("locked").disabled = true
+            alert("account locked")
+        }
+
+
         var usingImage = 1;
         image = document.getElementById("image");
 
-        function  newImage()
-        {
-            switch(usingImage)
-            {
+        function newImage() {
+            switch (usingImage) {
                 case 1:
                     image.setAttribute('src', 'Elephant.jpg');
                     usingImage++;
@@ -89,7 +101,7 @@
                     image.setAttribute('src', 'Vampire Bat.jpg');
                     usingImage = 1;
                     break;
-           }
+            }
         }
 
     </script>
